@@ -1,15 +1,15 @@
 #!/bin/sh
-WS=projects
+WS=~/projects
 
 if ! tmux has-session -t sfl; then
   tmux \
     new -s sfl -n browse \; \
-    send-keys "ssh lsdev.co" C-m \; \
     send-keys "cd $WS/deals" C-m \; \
     send-keys "BROWSE_SERVICE_LOCAL=true bundle exec foreman start" C-m \; \
+  detach
+  tmux \
     neww -n stepford \; \
-    send-keys "ssh lsdev.co" C-m \; \
-    send-keys "cd ~/projects/stepford" C-m \; \
+    send-keys "cd $WS/stepford" C-m \; \
     send-keys "STEPFORD_LOCAL=true bundle exec foreman start" C-m \; \
   detach 
 fi
