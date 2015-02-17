@@ -5,7 +5,7 @@ if ! tmux has-session -t sfl; then
   tmux \
     new -s sfl -n browse \; \
     send-keys "cd $WS/browse" C-m \; \
-    send-keys "BROWSE_SERVICE_LOCAL=true bundle exec foreman start" C-m \; \
+    send-keys "STEPFORD_LOCAL=true BROWSE_SERVICE_LOCAL=true DEALS_SERVICE_HOST=http://deals-service.lsdev.co foreman start" C-m \; \
     neww -n stepford \; \
     send-keys "cd ~/projects/stepford" C-m \; \
     send-keys "STEPFORD_LOCAL=true bundle exec foreman start" C-m \; \
@@ -17,7 +17,7 @@ if ! tmux has-session -t sfl; then
     send-keys "bundle exec foreman start" C-m \; \
     neww -n deals-service \; \
     send-keys "cd ~/projects/deals-service" C-m \; \
-    send-keys "STEPFORD_LOCAL=true DEALS_SERVICE_HOST=http://deals-service.lsdev.co bundle exec foreman start" C-m \; \
+    send-keys "bundle exec foreman start" C-m \; \
     neww -n deals \; \
     send-keys "cd ~/projects/deals" C-m \; \
     send-keys "STEPFORD_LOCAL=true bundle exec foreman start" C-m \; \
@@ -26,7 +26,7 @@ if ! tmux has-session -t sfl; then
     send-keys "LOCAL_STEPFORD=true bundle exec foreman start" C-m \; \
     neww -n geo \; \
     send-keys "cd ~/projects/geo" C-m \; \
-    send-keys "STEPFORD_LOCAL=true bundle exec foreman start" C-m \; \
+    send-keys "bundle exec foreman start" C-m \; \
     neww -n city-service \; \
     send-keys "cd ~/projects/city-service" C-m \; \
     send-keys "STEPFORD_LOCAL=true bundle exec foreman start" C-m \; \
